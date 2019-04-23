@@ -356,10 +356,6 @@ body {
   float: right;
 }
 
-#container2 {
-  opacity: 0.7;
-}
-
 #ammo-container span {
   font-size: 50px;
 }
@@ -868,6 +864,7 @@ body {
   height: 50%;
   margin: auto;
   text-align: center;
+  color: #0b1f2e !important;
 }
 
 #round_counter {
@@ -892,11 +889,11 @@ body {
 }
 
 .ct-color {
-  color: #73afd6;
+  color: #2d3359;
 }
 
 .t-color {
-  color: #f7bf16;
+  color: #d89955;
 }
 
 #team_2 {
@@ -916,8 +913,6 @@ body {
 #avatar_container img {
   width: 139px;
   height: 139px;
-  margin-top: 1px;
-  margin-left: 1px;
 }
 
 #team_2 > #team_name {

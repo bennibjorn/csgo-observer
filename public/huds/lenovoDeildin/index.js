@@ -23,16 +23,16 @@ function fillObserved(player) {
         $("#current_nick").css("background-image", "").addClass("no-flag");
     }
 
-    $("#kills_count").html(statistics.kills + " K /");
-    $("#assist_count").html(statistics.assists + " A /");
-    $("#death_count").html(statistics.deaths + " D");
+    $("#kills_count").html("K: " + statistics.kills + " /");
+    $("#assist_count").html("A: " + statistics.assists + " /");
+    $("#death_count").html("D: " + statistics.deaths);
 
     $("#player-container")
         .removeClass("t ct")
         .addClass(player.team.toLowerCase());
 
     $("#current_nick").html(player.name);
-    $("#nick_also").html(player.real_name + " ");
+    $("#nick_also").html(player.real_name);
 
     $("#nades").html("");
 
@@ -97,7 +97,7 @@ function fillPlayer(player,nr, side, max){
 
     let team = player.team.toLowerCase();
 
-    let health_color = statistics.health <= 20 ? "#e74c3c" : team == "ct" ? "#5788a8":"#c19511";
+    let health_color = statistics.health <= 20 ? "#e74c3c" : team == "ct" ? "#2d3359":"#d89955";
 
     let $player = $("#"+side).find("#player"+(nr+1));
 
