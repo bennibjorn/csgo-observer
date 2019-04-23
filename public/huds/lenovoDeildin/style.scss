@@ -14,6 +14,25 @@ body {
     color: white;
     background-color: rgba(0, 0, 0, 0);
 }
+.bodeh {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    .headerSection {
+        height: 100px;
+        display: flex;
+        justify-content: center;
+
+        #header {
+            background-color: rgba(255, 255, 255, 0.5);
+            color: $main-color;
+            width: 33%;
+        }
+    }
+    .bodySection {
+        height: calc(100% - 100px);
+    }
+}
 #defuser {
 width:500px;
 height:178px;
@@ -806,15 +825,6 @@ background-color: $main-color-red;
 #right>.player {
     float: right;
 }
-#header {
-    width: 1050px;
-    height: 100px;
-    position: fixed;
-    top: 0;
-
-    left: 50%;
-    margin-left: -525px;
-}
 
 #match_tournament {
     width: 70%;
@@ -822,17 +832,14 @@ background-color: $main-color-red;
     margin-top: 5px;
 
     height: 30px;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0));
+    //background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0));
 }
 
 #match_teams {
     width: 100%;
-    margin-top: 10px;
-    height: 55px;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
-}
-#team_name{
-    text-shadow: 0 0 10px black;
+    //margin-top: 10px;
+    height: 90px;
+    //background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
 }
 
 #time_counter {
@@ -846,16 +853,19 @@ background-color: $main-color-red;
 
 #round_counter {
     width: 15%;
-    height: 50%;
+    height: 20px;
     margin: auto;
     text-align: center;
+    display: flex;
+    font-weight: bold;
 }
 
 .team_info {
     width: 45%;
     font-size:30px;
-    text-transform: uppercase;
+    // text-transform: uppercase;
     font-weight: bold;
+    height: 60px;
 }
 
 #team_1 {

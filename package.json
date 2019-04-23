@@ -7,6 +7,10 @@
   "maintainers": [
     "osztenkurden <osztenkurden@gmail.com>"
   ],
+  "scripts": {
+    "start": "node index.js",
+    "styles": "sass public/huds/lenovoDeildin/style.scss public/huds/lenovoDeildin/style.css"
+  },
   "dependencies": {
     "request": "latest",
     "fs": "latest",
