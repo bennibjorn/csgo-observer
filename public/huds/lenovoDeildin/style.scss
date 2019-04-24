@@ -27,17 +27,49 @@ body {
         #header {
             color: $main-color;
             width: 40%;
-            
+            display: grid;
+            grid-template-columns: 2fr 3fr 2fr;
+            grid-template-rows: 90px 10px;
+            grid-template-areas: 
+                'team1-name header-score team2-name'
+                '. bomb-timer .';
+
+            #team1_name {
+                grid-area: team1-name;
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                font-size: 45px;
+                font-weight: bold;
+                color: white !important;
+                margin-right: 16px;
+                white-space: nowrap;
+            }
+            #team2_name {
+                grid-area: team2-name;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                font-size: 45px;
+                font-weight: bold;
+                color: white !important;
+                margin-left: 16px;
+                white-space: nowrap;
+            }
+            #bomb_timer {
+                grid-area: bomb-timer;
+            }
             #match_teams {
+                grid-area: header-score;
                 background-color: white;
-                padding: 8px;
+                // padding: 8px;
                 width: 100%;
                 height: 90px;
 
                 #round_info {
                     width: 100%;
                     display: grid;
-                    grid-template-columns: 2fr 1fr 2fr;
+                    grid-template-columns: 1fr 3fr 1fr;
                     grid-template-rows: 1fr 1fr;
                     grid-gap: 5px;
                     grid-template-areas: 
@@ -46,20 +78,20 @@ body {
 
                     #team_1 {
                         grid-area: team1;
-                        grid-template-columns: 3fr 1fr 1fr;
+                        grid-template-columns: 1fr 1fr;
                         grid-gap: 5px;
                         grid-template-areas: 
-                            'name logo score';
+                            'score score';
                         #team_score {
                             justify-content: flex-end;
                         }
                     }
                     #team_2 {
                         grid-area: team2;
-                        grid-template-columns: 1fr 1fr 3fr;
+                        grid-template-columns: 1fr 1fr;
                         grid-gap: 5px;
                         grid-template-areas: 
-                            'score logo name';
+                            'score score';
                         #team_score {
                             justify-content: flex-start;
                         }
@@ -71,7 +103,7 @@ body {
                             grid-area: score;
                             display: flex;
                             align-items: center;
-                            font-size: 30px;
+                            font-size: 55px;
                             font-weight: bold;
                         }
                         #team_logo {

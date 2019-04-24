@@ -21,35 +21,62 @@ body {
 .bodeh .headerSection #header {
   color: #0b1f2e;
   width: 40%;
+  display: grid;
+  grid-template-columns: 2fr 3fr 2fr;
+  grid-template-rows: 90px 10px;
+  grid-template-areas: "team1-name header-score team2-name" ". bomb-timer .";
+}
+.bodeh .headerSection #header #team1_name {
+  grid-area: team1-name;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 45px;
+  font-weight: bold;
+  color: white !important;
+  margin-right: 16px;
+}
+.bodeh .headerSection #header #team2_name {
+  grid-area: team2-name;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 45px;
+  font-weight: bold;
+  color: white !important;
+  margin-left: 16px;
+}
+.bodeh .headerSection #header #bomb_timer {
+  grid-area: bomb-timer;
 }
 .bodeh .headerSection #header #match_teams {
+  grid-area: header-score;
   background-color: white;
-  padding: 8px;
   width: 100%;
   height: 90px;
 }
 .bodeh .headerSection #header #match_teams #round_info {
   width: 100%;
   display: grid;
-  grid-template-columns: 2fr 1fr 2fr;
+  grid-template-columns: 1fr 3fr 1fr;
   grid-template-rows: 1fr 1fr;
   grid-gap: 5px;
   grid-template-areas: "team1 time team2" "team1 round team2";
 }
 .bodeh .headerSection #header #match_teams #round_info #team_1 {
   grid-area: team1;
-  grid-template-columns: 3fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   grid-gap: 5px;
-  grid-template-areas: "name logo score";
+  grid-template-areas: "score score";
 }
 .bodeh .headerSection #header #match_teams #round_info #team_1 #team_score {
   justify-content: flex-end;
 }
 .bodeh .headerSection #header #match_teams #round_info #team_2 {
   grid-area: team2;
-  grid-template-columns: 1fr 1fr 3fr;
+  grid-template-columns: 1fr 1fr;
   grid-gap: 5px;
-  grid-template-areas: "score logo name";
+  grid-template-areas: "score score";
 }
 .bodeh .headerSection #header #match_teams #round_info #team_2 #team_score {
   justify-content: flex-start;
@@ -61,7 +88,7 @@ body {
   grid-area: score;
   display: flex;
   align-items: center;
-  font-size: 30px;
+  font-size: 55px;
   font-weight: bold;
 }
 .bodeh .headerSection #header #match_teams #round_info .team_info #team_logo {
