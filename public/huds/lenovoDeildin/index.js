@@ -65,9 +65,9 @@ function fillObserved(player) {
             ? "helmet"
             : "armor");
     // set avatar styles
-    // loadAvatar(player.steamid, function(success){
-    //     $("#avatar_container").html($("<img />").attr("src", "/av/"+player.steamid));
-    // });
+    loadAvatar(player.steamid, function(success){
+        $("#avatar_container").html($("<img />").attr("src", "/av/"+player.steamid));
+    });
     // TODO: load player images instead of public avatars, ignore if it does not exist
 }
 function fillPlayers(teams){
@@ -374,8 +374,8 @@ function updatePage(data) {
         var offset = 0;
         for (var sl in players) {
             let player = players[sl];
-            // if (avatars[player.steamid] != true && disp_avatars) 
-            //     loadAvatar(player.steamid);
+            if (avatars[player.steamid] != true && disp_avatars) 
+                loadAvatar(player.steamid);
             
             if(player.observer_slot <= 5 && offset == 0 && player.team.toLowerCase() != teams.left.side)
                 offset = 6 - sl;

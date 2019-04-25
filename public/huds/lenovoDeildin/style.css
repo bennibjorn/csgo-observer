@@ -35,6 +35,7 @@ body {
   font-weight: bold;
   color: white !important;
   margin-right: 16px;
+  white-space: nowrap;
 }
 .bodeh .headerSection #header #team2_name {
   grid-area: team2-name;
@@ -45,6 +46,7 @@ body {
   font-weight: bold;
   color: white !important;
   margin-left: 16px;
+  white-space: nowrap;
 }
 .bodeh .headerSection #header #bomb_timer {
   grid-area: bomb-timer;
@@ -146,7 +148,7 @@ body {
 }
 
 #defuse_bar {
-  background-color: #822529;
+  background-color: #a80d15;
   width: 350px;
   position: absolute;
   height: 10px;
@@ -166,7 +168,7 @@ body {
   width: 100%;
   height: 10px;
   margin: auto;
-  background-color: #822529;
+  background-color: #a80d15;
 }
 
 #team_1 > #team_logo > #team_flag {
@@ -266,10 +268,10 @@ body {
   margin-left: 0 !important;
 }
 #player-container.ct #avatar_container {
-  border-color: #2d3359;
+  border-color: #3b4cbb;
 }
 #player-container.ct #container2 #second_row {
-  background-color: #2d3359;
+  background-color: #3b4cbb;
   color: white;
 }
 #player-container.ct #container2 #first_row #current_nick {
@@ -707,7 +709,7 @@ body {
 
 #left > .player > .bar1 > .hp_bar {
   width: 295px;
-  background: #2d3359;
+  background: #3b4cbb;
   height: 100%;
   float: left;
   text-shadow: 0px 0px 10px black;
@@ -953,7 +955,7 @@ body {
 }
 
 .ct-color {
-  color: #2d3359;
+  color: #3b4cbb;
 }
 
 .t-color {
