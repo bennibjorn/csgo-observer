@@ -386,8 +386,8 @@ function updatePage(data) {
     //PHASESc
     if (phase) {
         $("#time_counter").css("color", (phase.phase == "live" || phase.phase == "over" || phase.phase == "warmup" || (phase.phase == "freezetime" && phase.phase_ends_in > 10))
-            ? mainColor
-            : "red");
+            ? "white"
+            : "#ff6a6a");
         $("#defuser").css("display", phase.phase == "defuse"
             ? "block"
             : "none");

@@ -122,35 +122,43 @@ app.get('/av/:sid([0-9]+)', (req, res) => {
         });
         return res.end(file);
     } else {
-        let getPlayerCallback = (ans) => {
-            ans.on('data', (chunk) => {
-                bodyChunks.push(chunk);
-            }).on('end', endCallback)
-        }
-        let endCallback = () => {
-            let body = Buffer.concat(bodyChunks);
-
-            try {
-                data = JSON.parse(body).response;
-                if (data && data.players) {
-                    download(data.players[0].avatarfull, config.AvatarDirectory + filename, () => {
-                        let file = fs.readFileSync(filepath);
-                        res.writeHead(200, {
-                            'Content-Type': 'image/png',
-                            'Content-Length': file.length
-                        });
-                        return res.end(file);
-                    });
-                }
-            } catch (e) {
-                return res.sendStatus(500);
-            }
-        }
-
-        let request = http.get('http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=' + config.SteamApiKey + '&steamids=' + steam_id, getPlayerCallback);
-        request.on('error', (e) => {
-            return res.sendStatus(500);
+        filename = 'default.png';
+        filepath = config.AvatarDirectory + filename;
+        let file = fs.readFileSync(filepath);
+        res.writeHead(200, {
+            'Content-Type': 'image/png',
+            'Content-Length': file.length
         });
+        return res.end(file);
+    //     let getPlayerCallback = (ans) => {
+    //         ans.on('data', (chunk) => {
+    //             bodyChunks.push(chunk);
+    //         }).on('end', endCallback)
+    //     }
+    //     let endCallback = () => {
+    //         let body = Buffer.concat(bodyChunks);
+
+    //         try {
+    //             data = JSON.parse(body).response;
+    //             if (data && data.players) {
+    //                 download(data.players[0].avatarfull, config.AvatarDirectory + filename, () => {
+    //                     let file = fs.readFileSync(filepath);
+    //                     res.writeHead(200, {
+    //                         'Content-Type': 'image/png',
+    //                         'Content-Length': file.length
+    //                     });
+    //                     return res.end(file);
+    //                 });
+    //             }
+    //         } catch (e) {
+    //             return res.sendStatus(500);
+    //         }
+    //     }
+
+    //     let request = http.get('http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=' + config.SteamApiKey + '&steamids=' + steam_id, getPlayerCallback);
+    //     request.on('error', (e) => {
+    //         return res.sendStatus(500);
+    //     });
     }
 });
 io.on('connection', (socket) => {

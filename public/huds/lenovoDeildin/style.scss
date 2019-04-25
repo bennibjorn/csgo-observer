@@ -4,7 +4,7 @@ $t-color: #d89955;
 $ct-color: #3b4cbb;
 $main-color: #0b1f2e;
 $main-color-faded: #0b1f2e8e;
-$main-color-red: #a80d15;
+$main-color-red: #ff6a6a;
 
 html,
 body {
@@ -25,7 +25,7 @@ body {
         justify-content: center;
 
         #header {
-            color: $main-color;
+            color: white;
             width: 40%;
             display: grid;
             grid-template-columns: 2fr 3fr 2fr;
@@ -61,8 +61,11 @@ body {
             }
             #match_teams {
                 grid-area: header-score;
-                background-color: white;
+                // background-color: white;
                 // padding: 8px;
+                // background: rgb(59,76,187);
+                // background: linear-gradient(90deg, rgba(59,76,187,1) 0%, rgba(216,153,85,1) 100%);
+                background-color: rgba($color: #000000, $alpha: 0.5);
                 width: 100%;
                 height: 90px;
 
@@ -76,6 +79,10 @@ body {
                         'team1 time team2'
                         'team1 round team2';
 
+
+                    .ct-color, .t-color {
+                        color: white;
+                    }
                     #team_1 {
                         grid-area: team1;
                         grid-template-columns: 1fr 1fr;
@@ -280,6 +287,7 @@ background-color: $main-color-red;
     &.ct {
         #avatar_container {
             border-color: $ct-color;
+            background-color: $ct-color;
         }
         #container2 {
             #second_row {
@@ -295,6 +303,7 @@ background-color: $main-color-red;
     &.t {
         #avatar_container {
             border-color: $t-color;
+            background-color: $ct-color;
         }
         #container2 {
             #second_row {
