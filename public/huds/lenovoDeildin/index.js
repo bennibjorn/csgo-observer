@@ -5,6 +5,8 @@ var teams = {
 }
 var start_money = {};
 
+const mainColor = '#2d3359';
+
 function fillObserved(player) {
     let statistics = player.getStats();
     let weapons = player.weapons;
@@ -63,9 +65,10 @@ function fillObserved(player) {
             ? "helmet"
             : "armor");
     // set avatar styles
-    loadAvatar(player.steamid, function(){
+    loadAvatar(player.steamid, function(success){
         $("#avatar_container").html($("<img />").attr("src", "/av/"+player.steamid));
     });
+    // TODO: load player images instead of public avatars, ignore if it does not exist
 }
 function fillPlayers(teams){
     if(teams.left.players){
@@ -97,7 +100,7 @@ function fillPlayer(player,nr, side, max){
 
     let team = player.team.toLowerCase();
 
-    let health_color = statistics.health <= 20 ? "#e74c3c" : team == "ct" ? "#2d3359":"#d89955";
+    let health_color = statistics.health <= 20 ? "#ff6a6a" : team == "ct" ? "#3b4cbb":"#d89955";
 
     let $player = $("#"+side).find("#player"+(nr+1));
 
@@ -384,7 +387,7 @@ function updatePage(data) {
     if (phase) {
         $("#time_counter").css("color", (phase.phase == "live" || phase.phase == "over" || phase.phase == "warmup" || (phase.phase == "freezetime" && phase.phase_ends_in > 10))
             ? "white"
-            : "red");
+            : "#ff6a6a");
         $("#defuser").css("display", phase.phase == "defuse"
             ? "block"
             : "none");
@@ -410,7 +413,7 @@ function updatePage(data) {
         }
 
         if (phase.phase == "freezetime" || phase.phase.substring(0,7) == "timeout") {
-            if (phase.phase_ends_in > 3) {
+            if (phase.phase_ends_in > 1) {
                 if ($(".money").css("opacity") == 0) {
                     $(".money").fadeTo(1000, 1);
                     $("#stats-container").fadeTo(1000,1);

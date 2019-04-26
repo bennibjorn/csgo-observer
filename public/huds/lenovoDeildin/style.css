@@ -19,9 +19,114 @@ body {
   justify-content: center;
 }
 .bodeh .headerSection #header {
-  background-color: rgba(255, 255, 255, 0.5);
-  color: #0b1f2e;
-  width: 33%;
+  color: white;
+  width: 40%;
+  display: grid;
+  grid-template-columns: 2fr 3fr 2fr;
+  grid-template-rows: 90px 10px;
+  grid-template-areas: "team1-name header-score team2-name" ". bomb-timer .";
+}
+.bodeh .headerSection #header #team1_name {
+  grid-area: team1-name;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 45px;
+  font-weight: bold;
+  color: white !important;
+  margin-right: 16px;
+  white-space: nowrap;
+}
+.bodeh .headerSection #header #team2_name {
+  grid-area: team2-name;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 45px;
+  font-weight: bold;
+  color: white !important;
+  margin-left: 16px;
+  white-space: nowrap;
+}
+.bodeh .headerSection #header #bomb_timer {
+  grid-area: bomb-timer;
+}
+.bodeh .headerSection #header #match_teams {
+  grid-area: header-score;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 90px;
+}
+.bodeh .headerSection #header #match_teams #round_info {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 5px;
+  grid-template-areas: "team1 time team2" "team1 round team2";
+}
+.bodeh .headerSection #header #match_teams #round_info .ct-color, .bodeh .headerSection #header #match_teams #round_info .t-color {
+  color: white;
+}
+.bodeh .headerSection #header #match_teams #round_info #team_1 {
+  grid-area: team1;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 5px;
+  grid-template-areas: "score score";
+}
+.bodeh .headerSection #header #match_teams #round_info #team_1 #team_score {
+  justify-content: flex-end;
+}
+.bodeh .headerSection #header #match_teams #round_info #team_2 {
+  grid-area: team2;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 5px;
+  grid-template-areas: "score score";
+}
+.bodeh .headerSection #header #match_teams #round_info #team_2 #team_score {
+  justify-content: flex-start;
+}
+.bodeh .headerSection #header #match_teams #round_info .team_info {
+  display: grid;
+}
+.bodeh .headerSection #header #match_teams #round_info .team_info #team_score {
+  grid-area: score;
+  display: flex;
+  align-items: center;
+  font-size: 55px;
+  font-weight: bold;
+}
+.bodeh .headerSection #header #match_teams #round_info .team_info #team_logo {
+  grid-area: logo;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+}
+.bodeh .headerSection #header #match_teams #round_info .team_info #team_name {
+  grid-area: name;
+  display: flex;
+  align-items: center;
+  font-size: 30px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+.bodeh .headerSection #header #match_teams #round_info #time_counter {
+  grid-area: time;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+  font-weight: bold;
+}
+.bodeh .headerSection #header #match_teams #round_info #round_counter {
+  grid-area: round;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-weight: bold;
 }
 .bodeh .bodySection {
   height: calc(100% - 100px);
@@ -46,7 +151,7 @@ body {
 }
 
 #defuse_bar {
-  background-color: #822529;
+  background-color: #ff6a6a;
   width: 350px;
   position: absolute;
   height: 10px;
@@ -66,7 +171,7 @@ body {
   width: 100%;
   height: 10px;
   margin: auto;
-  background-color: #822529;
+  background-color: #ff6a6a;
 }
 
 #team_1 > #team_logo > #team_flag {
@@ -166,24 +271,26 @@ body {
   margin-left: 0 !important;
 }
 #player-container.ct #avatar_container {
-  border-color: #2d3359;
+  border-color: #3b4cbb;
+  background-color: #3b4cbb;
 }
 #player-container.ct #container2 #second_row {
-  background-color: #2d3359;
+  background-color: #3b4cbb;
   color: white;
 }
 #player-container.ct #container2 #first_row #current_nick {
-  color: #2d3359;
+  color: white;
 }
 #player-container.t #avatar_container {
   border-color: #d89955;
+  background-color: #d89955;
 }
 #player-container.t #container2 #second_row {
   background-color: #d89955;
   color: white;
 }
 #player-container.t #container2 #first_row #current_nick {
-  color: #d89955;
+  color: white;
 }
 
 .st_left {
@@ -607,7 +714,7 @@ body {
 
 #left > .player > .bar1 > .hp_bar {
   width: 295px;
-  background: #2d3359;
+  background: #3b4cbb;
   height: 100%;
   float: left;
   text-shadow: 0px 0px 10px black;
@@ -852,115 +959,17 @@ body {
   height: 30px;
 }
 
-#match_teams {
-  width: 100%;
-  height: 90px;
-}
-
-#time_counter {
-  font-size: 25px;
-  font-weight: bold;
-  width: 10%;
-  height: 50%;
-  margin: auto;
-  text-align: center;
-  color: #0b1f2e !important;
-}
-
-#round_counter {
-  width: 15%;
-  height: 20px;
-  margin: auto;
-  text-align: center;
-  display: flex;
-  font-weight: bold;
-}
-
-.team_info {
-  width: 45%;
-  font-size: 30px;
-  font-weight: bold;
-  height: 60px;
-}
-
-#team_1 {
-  text-align: right;
-  float: left;
-}
-
 .ct-color {
-  color: #2d3359;
+  color: #3b4cbb;
 }
 
 .t-color {
   color: #d89955;
 }
 
-#team_2 {
-  text-align: left;
-  float: right;
-}
-
-#team_score {
-  margin-top: 5px;
-}
-
-#team_1 > #team_name {
-  margin-top: 5px;
-  float: right;
-}
-
 #avatar_container img {
   width: 139px;
   height: 139px;
-}
-
-#team_2 > #team_name {
-  margin-top: 5px;
-  float: left;
-}
-
-#team_1 > #team_score {
-  margin-right: 10px;
-  float: right;
-}
-
-#team_2 > #team_score {
-  margin-left: 10px;
-  float: left;
-}
-
-#team_logo {
-  position: relative;
-  width: 10%;
-  height: 100%;
-  margin-right: 20px;
-  margin-left: 20px;
-}
-
-#team_logo.empty {
-  width: 0%;
-}
-
-#team_logo > img {
-  position: absolute;
-  margin-top: 8px;
-  max-height: 80%;
-  max-width: 100%;
-  margin: auto;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  filter: drop-shadow(3px 3px 4px black);
-}
-
-#team_1 > #team_logo {
-  float: right;
-}
-
-#team_2 > #team_logo {
-  float: left;
 }
 
 #flash-container {

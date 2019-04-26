@@ -32,10 +32,12 @@ function loadAvatar(steamid, callback) {
     if(!avatars[steamid]){
         $.get("/av/" + steamid, function () {
             avatars[steamid] = true;
-            if(callback) callback();
+            if(callback) {
+                callback(true);
+            }
         });
     } else if(callback){
-        callback();
+        callback(false);
     }
 }
 
