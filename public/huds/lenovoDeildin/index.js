@@ -334,10 +334,25 @@ function updatePage(data) {
     $("#round_counter").html("Round " + round_now + " / 30");
     //TEAMS
 
-    $("#team_2 #team_name").html(teams.right.name);
+    if (teams && teams.left && teams.left.name) {
+        $("#team1_name").html(teams.left.name);
+        if (teams.left.side) {
+            $("#team1_name")
+            .removeClass("ct-color t-color")
+            .addClass(teams.left.side.toLowerCase() + '-color');
+        }
+    }
+    if (teams && teams.right && teams.right.name) {
+        $("#team2_name").html(teams.right.name);
+        if (teams.right.side) {
+            $("#team2_name")
+            .removeClass("ct-color t-color")
+            .addClass(teams.right.side.toLowerCase() + '-color');
+        }
+    }
     $("#team_2 #team_score").html(teams.right.score);
-    $("#team_1 #team_name").html(teams.left.name);
     $("#team_1 #team_score").html(teams.left.score);
+
     if (teams.left.logo || teams.left.flag) {
         if (teams.left.flag) {
             $("#team_1 #team_logo #team_flag").css("background-image", "url('/files/img/flags/" + teams.left.flag + ".png')");
