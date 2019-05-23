@@ -197,16 +197,32 @@ function resetBomb() {
     $("#bomb_timer").css("display", "none");
 }
 
+function matchTeam(team) {
+    var matchedTeam = {
+        team_name: team.name,
+        country_code: 'IS',
+        logo: '',
+        map_score: 0
+    };
+    if (name === 'HaFiD') {
+        matchedTeam.name = 'HaFiÐ';
+    }
+
+}
+
 //SOME other weird vars
 var menu = false;
 var freezetime = false;
 let last_round = 0;
 
 function updatePage(data) {
+    var team_ct = data.getCT();
+    if (team_ct.name.trim().toLowerCase() === 'hafid') { team_ct.name = 'HaFiÐ'; }
+    var team_t = data.getT();
+    if (team_t.name.trim().toLowerCase() === 'hafid') { team_t.name = 'HaFiÐ'; }
+
     var observed = data.getObserved();
     var phase = data.phase();
-    var team_one = data.getTeamOne();
-    var team_two = data.getTeamTwo();
     
     var matchup = data.getMatchType();
     var match = data.getMatch();
@@ -247,8 +263,9 @@ function updatePage(data) {
     }
 
     var longd = 10;
-    var team_ct = data.getCT();
-    var team_t = data.getT();
+    var team_one = data.getTeamOne(team_ct.name);
+    var team_two = data.getTeamTwo(team_t.name);
+
     var test_player2 = data.getPlayer(1);
     var tscore = [];
     $("body").css("display", !map || menu
