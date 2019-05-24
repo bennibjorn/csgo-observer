@@ -11,6 +11,7 @@ function loadTeams(cb){
         let teams = {};
         
         teamsArray.forEach(function(team) {
+            teams[team.team_name] = team;
             teams[team._id] = team;
         }, this);
         loadPlayers(cb, teams);
@@ -44,13 +45,15 @@ function loadAvatar(steamid, callback) {
 $(document).ready(function () {
     var slotted = [];
     var meth = {
-        getTeamOne: function(){
-            if(!this.info.teams) return false;
-            return this.loadTeam(this.info.teams.team_1.team);
+        getTeamOne: function(teamOneName){
+            if(!this.info.teamList) return false;
+            //return this.loadTeam(this.info.teams.team_1.team);
+            return this.loadTeam(teamOneName);
         },
-        getTeamTwo: function(){
-            if(!this.info.teams) return false;
-            return this.loadTeam(this.info.teams.team_2.team);
+        getTeamTwo: function(teamTwoName){
+            if(!this.info.teamList) return false;
+            //return this.loadTeam(this.info.teams.team_2.team);
+            return this.loadTeam(teamTwoName);
         },
         loadTeam: function(id){
             return this.info.teamList[id] || false;
