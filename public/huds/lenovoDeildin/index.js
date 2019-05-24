@@ -357,12 +357,18 @@ function updatePage(data) {
             $("#team1_name")
             .removeClass("ct-color t-color")
             .addClass(teams.left.side.toLowerCase() + '-color');
+            $("team1_logo")
+            .removeClass("ct-color t-color")
+            .addClass(teams.left.side.toLowerCase() + '-color');
         }
     }
     if (teams && teams.right && teams.right.name) {
         $("#team2_name").html(teams.right.name);
         if (teams.right.side) {
             $("#team2_name")
+            .removeClass("ct-color t-color")
+            .addClass(teams.right.side.toLowerCase() + '-color');
+            $("team2_logo")
             .removeClass("ct-color t-color")
             .addClass(teams.right.side.toLowerCase() + '-color');
         }

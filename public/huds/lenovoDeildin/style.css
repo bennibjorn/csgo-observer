@@ -76,11 +76,11 @@ body {
 }
 .bodeh .headerSection #header .topContent #team1_logo {
   grid-area: team1-logo;
-  border-right: 5px solid #3b4cbb;
+  border-right: 5px solid white;
 }
 .bodeh .headerSection #header .topContent #team2_logo {
   grid-area: team2-logo;
-  border-left: 5px solid #d89955;
+  border-left: 5px solid white;
 }
 .bodeh .headerSection #header .topContent #match_teams {
   grid-area: header-score;
@@ -983,10 +983,12 @@ body {
 
 .ct-color {
   color: #3b4cbb;
+  border-color: #3b4cbb;
 }
 
 .t-color {
   color: #d89955;
+  border-color: #d89955;
 }
 
 #avatar_container img {
