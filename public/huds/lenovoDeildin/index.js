@@ -217,9 +217,9 @@ let last_round = 0;
 
 function updatePage(data) {
     var team_ct = data.getCT();
-    if (team_ct.name.trim().toLowerCase() === 'hafid') { team_ct.name = 'HaFiÐ'; }
+    if (team_ct && team_ct.name && team_ct.name.trim().toLowerCase() === 'hafid') { team_ct.name = 'HaFiÐ'; }
     var team_t = data.getT();
-    if (team_t.name.trim().toLowerCase() === 'hafid') { team_t.name = 'HaFiÐ'; }
+    if (team_t && team_t.name && team_t.name.trim().toLowerCase() === 'hafid') { team_t.name = 'HaFiÐ'; }
 
     var observed = data.getObserved();
     var phase = data.phase();
