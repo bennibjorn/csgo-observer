@@ -26,127 +26,159 @@ body {
 
         #header {
             color: white;
-            width: 40%;
+            width: 50%;
+            overflow: visible;
             display: grid;
-            grid-template-columns: 2fr 3fr 2fr;
+            grid-template-columns: 1fr 2fr 3fr 2fr 1fr;
             grid-template-rows: 90px 10px;
-            grid-template-areas: 
-                'team1-name header-score team2-name'
-                '. bomb-timer .';
+            grid-template-areas:
+                'top-content top-content top-content top-content top-content'
+                '. . bomb-timer . .';
 
-            #team1_name {
-                grid-area: team1-name;
-                display: flex;
-                justify-content: flex-end;
-                align-items: center;
-                font-size: 45px;
-                font-weight: bold;
-                // color: white !important;
-                margin-right: 16px;
-                white-space: nowrap;
-            }
-            #team2_name {
-                grid-area: team2-name;
-                display: flex;
-                justify-content: flex-start;
-                align-items: center;
-                font-size: 45px;
-                font-weight: bold;
-                // color: white !important;
-                margin-left: 16px;
-                white-space: nowrap;
-            }
             #bomb_timer {
                 grid-area: bomb-timer;
             }
-            #match_teams {
-                grid-area: header-score;
-                // background-color: white;
-                // padding: 8px;
-                // background: rgb(59,76,187);
-                // background: linear-gradient(90deg, rgba(59,76,187,1) 0%, rgba(216,153,85,1) 100%);
-                background-color: rgba($color: #000000, $alpha: 0.5);
+            .topContent {
+                grid-area: top-content;
+                display: grid;
                 width: 100%;
-                height: 90px;
+                overflow: visible;
+                color: white;
+                // background-color: rgba($color: #000000, $alpha: 0.5);
+                background: linear-gradient(90deg, #09888880 0%, #ac4edf7e 100%);
+                grid-template-columns: 1fr 2fr 3fr 2fr 1fr;
+                grid-template-rows: 1fr;
+                grid-template-areas:
+                    'team1-logo team1-name header-score team2-name team2-logo';
 
-                #round_info {
+                #team1_name {
+                    grid-area: team1-name;
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-end;
+                    padding-right: 8px;
+                    font-size: 40px;
+                    font-weight: bold;
+                    // color: white !important;
+                    white-space: nowrap;
+                    text-shadow: 1px 1px 0 black;
+                }
+                #team2_name {
+                    display: flex;
+                    align-items: center;
+                    grid-area: team2-name;
+                    justify-content: flex-start;
+                    padding-left: 8px;
+                    font-size: 40px;
+                    font-weight: bold;
+                    // color: white !important;
+                    white-space: nowrap;
+                    text-shadow: 1px 1px 0 black;
+                }
+                $logoSize: 70px;
+                #team1_logo, #team2_logo {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    // background-color: rgba(255, 170, 187, 0.658);
+                    height: 100%;
                     width: 100%;
-                    display: grid;
-                    grid-template-columns: 1fr 3fr 1fr;
-                    grid-template-rows: 1fr 1fr;
-                    grid-gap: 5px;
-                    grid-template-areas: 
-                        'team1 time team2'
-                        'team1 round team2';
+                    img {
+                        width: $logoSize;
+                        height: $logoSize;
+                    }
+                }
+                #team1_logo {
+                    grid-area: team1-logo;
+                    border-right: 5px solid white;
+                }
+                #team2_logo {
+                    grid-area: team2-logo;
+                    border-left: 5px solid white;
+                }
 
+                #match_teams {
+                    grid-area: header-score;
+                    // background-color: white;
+                    // padding: 8px;
+                    // background: rgb(59,76,187);
+                    // background: linear-gradient(90deg, #098888 0%, #ad4edf 100%);
+                    // background-color: rgba($color: #000000, $alpha: 0.5);
+                    width: 100%;
+                    height: 90px;
 
-                    .ct-color, .t-color {
-                        color: white;
-                    }
-                    #team_1 {
-                        grid-area: team1;
-                        grid-template-columns: 1fr 1fr;
-                        grid-gap: 5px;
-                        grid-template-areas: 
-                            'score score';
-                        #team_score {
-                            justify-content: flex-end;
-                        }
-                    }
-                    #team_2 {
-                        grid-area: team2;
-                        grid-template-columns: 1fr 1fr;
-                        grid-gap: 5px;
-                        grid-template-areas: 
-                            'score score';
-                        #team_score {
-                            justify-content: flex-start;
-                        }
-                    }
-                    .team_info {
+                    #round_info {
+                        width: 100%;
                         display: grid;
+                        grid-template-columns: 1fr 3fr 1fr;
+                        grid-template-rows: 1fr 1fr;
+                        grid-gap: 5px;
+                        grid-template-areas:
+                            'team1 time team2'
+                            'team1 round team2';
 
-                        #team_score {
-                            grid-area: score;
-                            display: flex;
-                            align-items: center;
-                            font-size: 55px;
-                            font-weight: bold;
+
+                        .ct-color, .t-color {
+                            color: white;
                         }
-                        #team_logo {
-                            grid-area: logo;
+                        #team_1 {
+                            grid-area: team1;
+                            grid-template-columns: 1fr 1fr;
+                            grid-gap: 5px;
+                            grid-template-areas:
+                                'score score';
+                            #team_score {
+                                justify-content: flex-end;
+                            }
+                        }
+                        #team_2 {
+                            grid-area: team2;
+                            grid-template-columns: 1fr 1fr;
+                            grid-gap: 5px;
+                            grid-template-areas:
+                                'score score';
+                            #team_score {
+                                justify-content: flex-start;
+                            }
+                        }
+                        .team_info {
+                            display: grid;
+
+                            #team_score {
+                                grid-area: score;
+                                display: flex;
+                                align-items: center;
+                                font-size: 55px;
+                                font-weight: bold;
+                            }
+                            #team_name {
+                                grid-area: name;
+                                display: flex;
+                                align-items: center;
+                                font-size: 30px;
+                                font-weight: bold;
+                                white-space: nowrap;
+                            }
+                        }
+                        #time_counter {
+                            grid-area: time;
                             display: flex;
                             justify-content: center;
                             align-items: center;
-                            width: 50px;
-                            height: 50px;
-                        }
-                        #team_name {
-                            grid-area: name;
-                            display: flex;
-                            align-items: center;
-                            font-size: 30px;
+                            font-size: 25px;
                             font-weight: bold;
-                            white-space: nowrap;
                         }
-                    }
-                    #time_counter {
-                        grid-area: time;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        font-size: 25px;
-                        font-weight: bold;
-                    }
-                    #round_counter {
-                        grid-area: round;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        font-size: 20px;
-                        font-weight: bold;
+                        #round_counter {
+                            grid-area: round;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            font-size: 20px;
+                            font-weight: bold;
+                        }
                     }
                 }
+
             }
         }
     }
@@ -428,7 +460,7 @@ background-color: $main-color-red;
 }
 
 #armor-text {
-    
+
     background-repeat: no-repeat;
     background-size: 29%;
     background-position: left 40%;
@@ -531,7 +563,7 @@ background-color: $main-color-red;
     font-size: 30px;
     display: inline-block;
     white-space: nowrap;
-    
+
     background-repeat: no-repeat;
     background-position: 0 65%;
     background-size: 27px;
@@ -962,9 +994,11 @@ background-color: $main-color-red;
 
 .ct-color{
     color: $ct-color;
+    border-color: $ct-color;
 }
 .t-color{
     color: $t-color;
+    border-color: $t-color;
 }
 
 #avatar_container img {
@@ -977,7 +1011,7 @@ background-color: $main-color-red;
 #flash-container {
     position: fixed;
     bottom: 0px;
-    
+
     font-family: 'Saira Semi Condensed', sans-serif;
     left: 50%;
     margin-left: -550px;
