@@ -293,11 +293,11 @@ body {
   margin-left: 0 !important;
 }
 #player-container.ct #avatar_container {
-  border-color: #3b4cbb;
-  background-color: #3b4cbb;
+  border-color: #566ae7;
+  background-color: #566ae7;
 }
 #player-container.ct #container2 #second_row {
-  background-color: #3b4cbb;
+  background-color: #566ae7;
   color: white;
 }
 #player-container.ct #container2 #first_row #current_nick {
@@ -499,6 +499,7 @@ body {
 
 #first_row {
   background-color: #0b1f2e8e;
+  background: linear-gradient(90deg, #09888880 0%, #ac4edf7e 100%);
   height: 70%;
   padding-left: 15px;
   width: 100%;
@@ -736,7 +737,7 @@ body {
 
 #left > .player > .bar1 > .hp_bar {
   width: 295px;
-  background: #3b4cbb;
+  background: #566ae7;
   height: 100%;
   float: left;
   text-shadow: 0px 0px 10px black;
@@ -982,8 +983,8 @@ body {
 }
 
 .ct-color {
-  color: #3b4cbb;
-  border-color: #3b4cbb;
+  color: #566ae7;
+  border-color: #566ae7;
 }
 
 .t-color {
@@ -1043,6 +1044,7 @@ body {
   text-align: center;
   font-size: 40px;
   background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+  background: linear-gradient(90deg, #09888880 0%, #ac4edf7e 100%);
 }
 
 #who_won div {

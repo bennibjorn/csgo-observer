@@ -1,10 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Saira+Semi+Condensed');
 
 $t-color: #d89955;
-$ct-color: #3b4cbb;
+$ct-color: #566ae7;
 $main-color: #0b1f2e;
 $main-color-faded: #0b1f2e8e;
 $main-color-red: #ff6a6a;
+$gradient: linear-gradient(90deg, #09888880 0%, #ac4edf7e 100%);
+$gradient-reverse: linear-gradient(90deg, #ac4edf7e 0%, #09888880 100%);
 
 html,
 body {
@@ -45,7 +47,7 @@ body {
                 overflow: visible;
                 color: white;
                 // background-color: rgba($color: #000000, $alpha: 0.5);
-                background: linear-gradient(90deg, #09888880 0%, #ac4edf7e 100%);
+                background: $gradient;
                 grid-template-columns: 1fr 2fr 3fr 2fr 1fr;
                 grid-template-rows: 1fr;
                 grid-template-areas:
@@ -528,6 +530,7 @@ background-color: $main-color-red;
 
 #first_row {
     background-color: $main-color-faded;
+    background: $gradient;
     height: 70%;
     padding-left: 15px;
     width: 100%;
@@ -779,9 +782,11 @@ background-color: $main-color-red;
 }
 #left > .money{
      background: linear-gradient(to right, rgba(0, 0, 0, 0.65) 295px, rgba(0, 0, 0, 0.65) 295px, rgba(0, 0, 0, 0.3) 410px, rgba(0, 0, 0, 0.0) 410px);
+     //background: $gradient;
 }
 #right > .money{
      background: linear-gradient(to left, rgba(0, 0, 0, 0.65) 295px, rgba(0, 0, 0, 0.65) 295px, rgba(0, 0, 0, 0.3) 410px, rgba(0, 0, 0, 0.0) 410px);
+     //background: $gradient-reverse;
 }
 
 .stat_t {
@@ -1050,7 +1055,8 @@ background-color: $main-color-red;
     width:1000px;
     text-align: center;
     font-size: 40px;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0))
+    background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+    background: $gradient;
 }
 #who_won div {
     display:inline-block;
