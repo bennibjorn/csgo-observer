@@ -45,18 +45,20 @@ function loadAvatar(steamid, callback) {
 $(document).ready(function () {
     var slotted = [];
     var meth = {
-        getTeamOne: function(teamOneName){
-            if(!this.info.teamList) return false;
-            //return this.loadTeam(this.info.teams.team_1.team);
-            return this.loadTeam(teamOneName);
+        getTeamOne: function(){
+            if(!this.info.teams) return false;
+            return this.loadTeam(this.info.teams.team_1.team);
         },
-        getTeamTwo: function(teamTwoName){
-            if(!this.info.teamList) return false;
-            //return this.loadTeam(this.info.teams.team_2.team);
-            return this.loadTeam(teamTwoName);
+        getTeamTwo: function(){
+            if(!this.info.teams) return false;
+            return this.loadTeam(this.info.teams.team_2.team);
         },
         loadTeam: function(id){
             return this.info.teamList[id] || false;
+        },
+        getTeamLogo: function(teamName) {
+            if (!this.info.teamList) { return null; }
+            return this.info.teamList[teamName].logo;
         },
         getMatchType : function(){
             return (this.info.teams && this.info.teams.match ? this.info.teams.match : false);

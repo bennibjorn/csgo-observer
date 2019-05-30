@@ -197,32 +197,16 @@ function resetBomb() {
     $("#bomb_timer").css("display", "none");
 }
 
-function matchTeam(team) {
-    var matchedTeam = {
-        team_name: team.name,
-        country_code: 'IS',
-        logo: '',
-        map_score: 0
-    };
-    if (name === 'HaFiD') {
-        matchedTeam.name = 'HaFiÐ';
-    }
-
-}
-
 //SOME other weird vars
 var menu = false;
 var freezetime = false;
 let last_round = 0;
 
 function updatePage(data) {
-    var team_ct = data.getCT();
-    if (team_ct && team_ct.name && team_ct.name.trim().toLowerCase() === 'hafid') { team_ct.name = 'HaFiÐ'; }
-    var team_t = data.getT();
-    if (team_t && team_t.name && team_t.name.trim().toLowerCase() === 'hafid') { team_t.name = 'HaFiÐ'; }
-
     var observed = data.getObserved();
     var phase = data.phase();
+    var team_one = data.getTeamOne();
+    var team_two = data.getTeamTwo();
     
     var matchup = data.getMatchType();
     var match = data.getMatch();
@@ -263,8 +247,13 @@ function updatePage(data) {
     }
 
     var longd = 10;
-    var team_one = data.getTeamOne(team_ct.name);
-    var team_two = data.getTeamTwo(team_t.name);
+    var team_ct = data.getCT();
+    var team_t = data.getT();
+    // correct names
+    if (team_ct && team_ct.name && team_ct.name.trim().toLowerCase() === 'hafid') { team_ct.name = 'HaFiÐ'; }
+    if (team_t && team_t.name && team_t.name.trim().toLowerCase() === 'hafid') { team_t.name = 'HaFiÐ'; }
+    if (team_one && team_one.team_name && team_one.team_name.trim().toLowerCase() === 'hafid') { team_one.team_name = 'HaFiÐ'; }
+    if (team_two && team_two.team_name && team_two.team_name.trim().toLowerCase() === 'hafid') { team_two.team_name = 'HaFiÐ'; }
 
     var test_player2 = data.getPlayer(1);
     var tscore = [];
@@ -282,7 +271,6 @@ function updatePage(data) {
             .toLowerCase() != "ct"
             ? team_ct
             : team_t;
-        
         teams.left.side = left.side || null;
         teams.right.side = right.side || null;
 
@@ -305,8 +293,17 @@ function updatePage(data) {
         teams.left.flag = team_one.country_code || null;
         teams.right.flag = team_two.country_code || null;
 
-        teams.left.logo = team_one.logo || null;
-        teams.right.logo = team_two.logo || null;
+        if (team_one.logo) {
+            teams.left.logo = team_one.logo;
+        } else {
+            // load logo with name
+            teams.left.logo = data.getTeamLogo(teams.left.name);
+        }
+        if (team_two.logo) {
+            teams.right.logo = team_two.logo;
+        } else {
+            teams.right.logo = data.getTeamLogo(teams.right.name);
+        }
 
         teams.left.map_score = team_one.map_score || 0;
         teams.right.map_score = team_two.map_score || 0;
@@ -314,6 +311,8 @@ function updatePage(data) {
 
         teams.left.players = left.players || null;
         teams.right.players = right.players || null;
+
+        console.log(teams);
 
         $("#match_one_info")
             .removeClass("ct t")
