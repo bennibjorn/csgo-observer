@@ -109,7 +109,9 @@ function fillPlayer(player,nr, side, max){
 
     let gradient = "linear-gradient(to " + side +", rgba(0,0,0,0) " + (100-statistics.health) + "%, " + health_color + " " + (100-statistics.health) + "%)";
 
-    $top.find("#bar_username").text(player.name.split(" ").join(""));
+    let playerText = side === 'left' ? ((nr + 1) + " | " + player.name.split(" ").join("")) : (player.name.split(" ").join("") + " | " + (nr + 6));
+
+    $top.find("#bar_username").text(playerText);
     $top.find("#bar_username").removeClass("dead").addClass(statistics.health == 0 ? "dead" : "");
 
     $top.find("#hp_p").text(statistics.health);
