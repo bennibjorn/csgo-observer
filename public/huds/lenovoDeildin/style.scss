@@ -5,8 +5,9 @@ $ct-color: #566ae7;
 $main-color: #0b1f2e;
 $main-color-faded: #0b1f2e8e;
 $main-color-red: #ff6a6a;
-$gradient: linear-gradient(90deg, #09888880 0%, #62198a82 100%);
-$gradient-reverse: linear-gradient(90deg, #62198a82 0%, #09888880 100%);
+// $gradient: linear-gradient(90deg, #09888880 0%, #62198a82 100%);
+$gradient: linear-gradient(90deg, #555555ad 0%, #ee3023ad 50%, #555555ad 100%);
+$gradient-alternative: linear-gradient(90deg, #555555ad 0%, #ee3023ad 25%, #d20000ad 75%, #555555ad 100%);
 
 html,
 body {
@@ -297,7 +298,20 @@ background-color: $main-color-red;
     font-size: 30px;
     margin-top: -10px;
 }
-
+#sponsorLogos {
+    position: fixed;
+    bottom: 15px;
+    left: 50%;
+    margin-left: -425px;
+    width: 870px;
+    height: 65px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    img {
+        max-height: 65px;
+    }
+}
 #player-container {
     position: fixed;
     bottom: 100px;
@@ -534,7 +548,7 @@ background-color: $main-color-red;
 
 #first_row {
     background-color: $main-color-faded;
-    background: $gradient;
+    background: $gradient-alternative;
     height: 70%;
     padding-left: 15px;
     width: 100%;
@@ -788,11 +802,9 @@ background-color: $main-color-red;
 }
 #left > .money{
      background: linear-gradient(to right, rgba(0, 0, 0, 0.65) 295px, rgba(0, 0, 0, 0.65) 295px, rgba(0, 0, 0, 0.3) 410px, rgba(0, 0, 0, 0.0) 410px);
-     //background: $gradient;
 }
 #right > .money{
      background: linear-gradient(to left, rgba(0, 0, 0, 0.65) 295px, rgba(0, 0, 0, 0.65) 295px, rgba(0, 0, 0, 0.3) 410px, rgba(0, 0, 0, 0.0) 410px);
-     //background: $gradient-reverse;
 }
 
 .stat_t {
