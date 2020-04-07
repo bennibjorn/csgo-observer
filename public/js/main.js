@@ -57,7 +57,7 @@ $(document).ready(function () {
             return this.info.teamList[id] || false;
         },
         getTeamLogo: function(teamName) {
-            if (!this.info.teamList) { return null; }
+            if (!this.info.teamList || !this.info.teamList[teamName]) { return null; }
             return this.info.teamList[teamName].logo;
         },
         getMatchType : function(){

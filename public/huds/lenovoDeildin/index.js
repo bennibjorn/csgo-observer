@@ -97,17 +97,20 @@ function fillPlayer(player,nr, side, max){
     let statistics = player.getStats();
     let weapons = player.getWeapons();
     let steamid = player.steamid;
-
     let team = player.team.toLowerCase();
 
-    let health_color = statistics.health <= 20 ? "#ff6a6a" : team == "ct" ? "#3b4cbb":"#d89955";
+    let health_color = statistics.health <= 20 ? "#ff6a6a" : team == "ct" ? "#3786b9":"#c5a437";
 
     let $player = $("#"+side).find("#player"+(nr+1));
 
     let $bottom = $player.find(".bottom_bar");
     let $top = $player.find(".bar1");
 
-    let gradient = "linear-gradient(to " + side +", rgba(0,0,0,0) " + (100-statistics.health) + "%, " + health_color + " " + (100-statistics.health) + "%)";
+    let gradient = "linear-gradient(to " + side  +
+    ", rgba(0,0,0,0) " + 
+    (100-statistics.health) + 
+    "%, " + health_color + " " + 
+    (100-statistics.health) + "%)";
 
     let playerText = side === 'left' ? ((nr + 1) + " | " + player.name.split(" ").join("")) : (player.name.split(" ").join("") + " | " + (nr + 6));
 
@@ -136,6 +139,14 @@ function fillPlayer(player,nr, side, max){
         };
         $bottom.find("#weapon_icon").prepend($("<img />").attr("src", "/files/img/death.png").addClass("death").css("float", side)).prepend($("<div></div>").text(statistics.round_kills).css(img_css));
     }
+
+    // if (statistics.health == 0) {
+    //     // insert K/A/D in bottom bar
+    //     let text = `K: ${statistics.kills} / A: ${statistics.assists} / D: ${statistics.deaths}`;
+    //     $bottom.find(".dead_stats").text(text);
+    // } else {
+    //     $bottom.find(".dead_stats").text("");
+    // }
 
     for(let key in weapons){
         let weapon = weapons[key];
@@ -251,11 +262,6 @@ function updatePage(data) {
     var longd = 10;
     var team_ct = data.getCT();
     var team_t = data.getT();
-    // correct names
-    if (team_ct && team_ct.name && team_ct.name.trim().toLowerCase() === 'hafid') { team_ct.name = 'HaFiÐ'; }
-    if (team_t && team_t.name && team_t.name.trim().toLowerCase() === 'hafid') { team_t.name = 'HaFiÐ'; }
-    if (team_one && team_one.team_name && team_one.team_name.trim().toLowerCase() === 'hafid') { team_one.team_name = 'HaFiÐ'; }
-    if (team_two && team_two.team_name && team_two.team_name.trim().toLowerCase() === 'hafid') { team_two.team_name = 'HaFiÐ'; }
 
     var test_player2 = data.getPlayer(1);
     var tscore = [];
@@ -313,8 +319,6 @@ function updatePage(data) {
 
         teams.left.players = left.players || null;
         teams.right.players = right.players || null;
-
-        console.log(teams);
 
         $("#match_one_info")
             .removeClass("ct t")

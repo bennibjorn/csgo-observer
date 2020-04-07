@@ -36,7 +36,7 @@ body {
   width: 100%;
   overflow: visible;
   color: white;
-  background: linear-gradient(90deg, #555555ad 0%, #ee3023ad 50%, #555555ad 100%);
+  background: linear-gradient(90deg, #55555500 0%, #3d3d3dad 36%, #3d3d3dad 64%, #00000000 100%);
   grid-template-columns: 1fr 2fr 3fr 2fr 1fr;
   grid-template-rows: 1fr 0.5fr;
   grid-template-areas: "team1-logo team1-name header-score team2-name team2-logo" "team1-logo team1-name tournament team2-name team2-logo";
@@ -293,10 +293,14 @@ body {
   width: 920px;
 }
 #player-container #avatar_container {
-  border: 4px solid;
+  border-bottom: 12px solid;
+  width: 139px;
+  height: 139px;
+  margin-top: -74px;
+  float: left;
 }
 #player-container #container2 {
-  margin-left: 144px;
+  margin-left: 139px;
 }
 #player-container.no-avatar {
   margin-left: -390.5px;
@@ -309,22 +313,22 @@ body {
   margin-left: 0 !important;
 }
 #player-container.ct #avatar_container {
-  border-color: #566ae7;
-  background-color: #566ae7;
+  border-color: #3786b9;
+  background-color: transparent;
 }
 #player-container.ct #container2 #second_row {
-  background-color: #566ae7;
+  background-color: #3786b9;
   color: white;
 }
 #player-container.ct #container2 #first_row #current_nick {
   color: white;
 }
 #player-container.t #avatar_container {
-  border-color: #d89955;
-  background-color: #d89955;
+  border-color: #c5a437;
+  background-color: transparent;
 }
 #player-container.t #container2 #second_row {
-  background-color: #d89955;
+  background-color: #c5a437;
   color: white;
 }
 #player-container.t #container2 #first_row #current_nick {
@@ -515,18 +519,18 @@ body {
 
 #first_row {
   background-color: #0b1f2e8e;
-  background: linear-gradient(90deg, #555555ad 0%, #ee3023ad 25%, #d20000ad 75%, #555555ad 100%);
+  background: linear-gradient(90deg, #09888880 0%, #62198a82 100%);
   height: 70%;
   padding-left: 15px;
   width: 100%;
 }
 
 .ct_color {
-  background-color: #2d3359 !important;
+  background-color: #3786b9 !important;
 }
 
 .t_color {
-  background-color: #d89955 !important;
+  background-color: #c5a437 !important;
 }
 
 .ct_color_border {
@@ -696,11 +700,11 @@ body {
 }
 
 .ct .block.win {
-  background-color: #566ae7;
+  background-color: #3786b9;
 }
 
 .t .block.win {
-  background-color: #d89955;
+  background-color: #c5a437;
 }
 
 #match_one_info .block {
@@ -753,20 +757,26 @@ body {
 
 #left > .player > .bar1 > .hp_bar {
   width: 295px;
-  background: #566ae7;
+  background: #3786b9;
   height: 100%;
   float: left;
   text-shadow: 0px 0px 10px black;
   transform: scale(0.99, 0.9);
+  transition-property: all;
+  transition-timing-function: ease-in-out;
+  transition-duration: 0.2s;
 }
 
 #right > .player > .bar1 > .hp_bar {
   width: 295px;
-  background: #d89955;
+  background: #c5a437;
   height: 100%;
   float: right;
   text-shadow: 0px 0px 10px black;
   transform: scale(0.99, 0.9);
+  transition-property: all;
+  transition-timing-function: ease-in-out;
+  transition-duration: 0.2s;
 }
 
 .money {
@@ -992,13 +1002,13 @@ body {
 }
 
 .ct-color {
-  color: #566ae7;
-  border-color: #566ae7;
+  color: #3786b9;
+  border-color: #3786b9;
 }
 
 .t-color {
-  color: #d89955;
-  border-color: #d89955;
+  color: #c5a437;
+  border-color: #c5a437;
 }
 
 #avatar_container img {
@@ -1049,7 +1059,7 @@ body {
   text-align: center;
   font-size: 40px;
   background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
-  background: linear-gradient(90deg, #555555ad 0%, #ee3023ad 50%, #555555ad 100%);
+  background: linear-gradient(90deg, #55555500 0%, #3d3d3dad 36%, #3d3d3dad 64%, #00000000 100%);
 }
 
 #who_won div {
