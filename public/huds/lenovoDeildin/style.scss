@@ -1,12 +1,17 @@
 @import url('https://fonts.googleapis.com/css?family=Saira+Semi+Condensed');
 
-$t-color: #d89955;
-$ct-color: #566ae7;
+$t-color: #c5a437;
+$ct-color: #3786b9;
 $main-color: #0b1f2e;
 $main-color-faded: #0b1f2e8e;
 $main-color-red: #ff6a6a;
-$gradient: linear-gradient(90deg, #09888880 0%, #ac4edf7e 100%);
-$gradient-reverse: linear-gradient(90deg, #ac4edf7e 0%, #09888880 100%);
+$gradient: linear-gradient(90deg, #09888880 0%, #62198a82 100%);
+$gradient-gray: linear-gradient(90deg, #55555500 0%, #3d3d3dad 36%, #3d3d3dad 64%, #00000000 100%);
+$gradient-red: linear-gradient(90deg, #555555ad 0%, #ee3023ad 50%, #555555ad 100%);
+$gradient-red-alternative: linear-gradient(90deg, #555555ad 0%, #ee3023ad 25%, #d20000ad 75%, #555555ad 100%);
+$scoreboard-background: $gradient-gray;
+$playername-background: $gradient;
+$whowon-background: $gradient-gray;
 
 html,
 body {
@@ -22,7 +27,7 @@ body {
     flex-direction: column;
     width: 100%;
     .headerSection {
-        height: 100px;
+        height: 130px;
         display: flex;
         justify-content: center;
 
@@ -32,7 +37,7 @@ body {
             overflow: visible;
             display: grid;
             grid-template-columns: 1fr 2fr 3fr 2fr 1fr;
-            grid-template-rows: 90px 10px;
+            grid-template-rows: 120px 10px;
             grid-template-areas:
                 'top-content top-content top-content top-content top-content'
                 '. . bomb-timer . .';
@@ -47,12 +52,16 @@ body {
                 overflow: visible;
                 color: white;
                 // background-color: rgba($color: #000000, $alpha: 0.5);
-                background: $gradient;
+                background: $scoreboard-background;
                 grid-template-columns: 1fr 2fr 3fr 2fr 1fr;
-                grid-template-rows: 1fr;
+                grid-template-rows: 1fr 0.5fr;
                 grid-template-areas:
-                    'team1-logo team1-name header-score team2-name team2-logo';
-
+                'team1-logo team1-name header-score team2-name team2-logo'
+                'team1-logo team1-name tournament team2-name team2-logo';
+                
+                #match_tournament {
+                    grid-area: tournament;
+                }
                 #team1_name {
                     grid-area: team1-name;
                     display: flex;
@@ -92,11 +101,11 @@ body {
                 }
                 #team1_logo {
                     grid-area: team1-logo;
-                    border-right: 5px solid white;
+                    // border-right: 5px solid white;
                 }
                 #team2_logo {
                     grid-area: team2-logo;
-                    border-left: 5px solid white;
+                    // border-left: 5px solid white;
                 }
 
                 #match_teams {
@@ -293,7 +302,20 @@ background-color: $main-color-red;
     font-size: 30px;
     margin-top: -10px;
 }
-
+#sponsorLogos {
+    position: fixed;
+    bottom: 15px;
+    left: 50%;
+    margin-left: -425px;
+    width: 870px;
+    height: 65px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    img {
+        max-height: 65px;
+    }
+}
 #player-container {
     position: fixed;
     bottom: 100px;
@@ -303,10 +325,14 @@ background-color: $main-color-red;
     height: 70px;
     width: 920px;
     #avatar_container {
-        border: 4px solid;
+        border-bottom: 12px solid;
+        width: 139px;
+        height: 139px;
+        margin-top: -74px;
+        float: left;
     }
     #container2 {
-        margin-left: 144px;
+        margin-left: 139px;
     }
     &.no-avatar {
         margin-left: -390.5px;
@@ -321,7 +347,7 @@ background-color: $main-color-red;
     &.ct {
         #avatar_container {
             border-color: $ct-color;
-            background-color: $ct-color;
+            background-color: transparent;
         }
         #container2 {
             #second_row {
@@ -337,7 +363,7 @@ background-color: $main-color-red;
     &.t {
         #avatar_container {
             border-color: $t-color;
-            background-color: $t-color;
+            background-color: transparent;
         }
         #container2 {
             #second_row {
@@ -530,18 +556,18 @@ background-color: $main-color-red;
 
 #first_row {
     background-color: $main-color-faded;
-    background: $gradient;
+    background: $playername-background;
     height: 70%;
     padding-left: 15px;
     width: 100%;
 }
 
 .ct_color {
-    background-color: #2d3359 !important;
+    background-color: #3786b9 !important;
 }
 
 .t_color {
-    background-color: #d89955 !important;
+    background-color: #c5a437 !important;
 }
 
 .ct_color_border {
@@ -707,10 +733,12 @@ background-color: $main-color-red;
     background-color: rgba(211,211,211,0.4);
 }
 .ct .block.win{
-    background-color:rgba(111,179,224,0.6);
+    // background-color:rgba(111,179,224,0.8);
+    background-color: $ct-color;
 }
 .t .block.win{
-    background-color:rgba(255,211,78,0.6);
+    // background-color:rgba(255,211,78,0.8);
+    background-color: $t-color;
 }
 #match_one_info .block{
     float:right;
@@ -765,6 +793,9 @@ background-color: $main-color-red;
     float: left;
     text-shadow: 0px 0px 10px black;
     transform: scale(0.99,0.9);
+    transition-property: all;
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.2s;
 }
 
 #right>.player>.bar1>.hp_bar {
@@ -774,6 +805,9 @@ background-color: $main-color-red;
     float: right;
     text-shadow: 0px 0px 10px black;
     transform: scale(0.99,0.9);
+    transition-property: all;
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.2s;
 }
 
 .money {
@@ -782,11 +816,9 @@ background-color: $main-color-red;
 }
 #left > .money{
      background: linear-gradient(to right, rgba(0, 0, 0, 0.65) 295px, rgba(0, 0, 0, 0.65) 295px, rgba(0, 0, 0, 0.3) 410px, rgba(0, 0, 0, 0.0) 410px);
-     //background: $gradient;
 }
 #right > .money{
      background: linear-gradient(to left, rgba(0, 0, 0, 0.65) 295px, rgba(0, 0, 0, 0.65) 295px, rgba(0, 0, 0, 0.3) 410px, rgba(0, 0, 0, 0.0) 410px);
-     //background: $gradient-reverse;
 }
 
 .stat_t {
@@ -988,15 +1020,6 @@ background-color: $main-color-red;
     float: right;
 }
 
-#match_tournament {
-    width: 70%;
-    margin: auto;
-    margin-top: 5px;
-
-    height: 30px;
-    //background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0));
-}
-
 .ct-color{
     color: $ct-color;
     border-color: $ct-color;
@@ -1023,9 +1046,6 @@ background-color: $main-color-red;
     height: 420px;
     width: 1100px;
     /*transform: skewX(40deg);*/
-}
-#match_tournament > div{
-    line-height: 30px;
 }
 #match_one_info{
     float:left;
@@ -1056,7 +1076,7 @@ background-color: $main-color-red;
     text-align: center;
     font-size: 40px;
     background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
-    background: $gradient;
+    background: $whowon-background;
 }
 #who_won div {
     display:inline-block;

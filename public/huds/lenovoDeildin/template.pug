@@ -22,21 +22,21 @@ html
                 #team_score 0
               #time_counter 1:55
               #round_counter Round 0 / 30
-          //- #match_tournament
-          //-   div(style='margin:auto; width:70%')
-          //-     #match_one_info
-          //-       .block
-          //-       .block
-          //-     #match_two_info
-          //-       .block
-          //-       .block
-          //-     #match_info Best Of 3
           #team1_logo
             img#team_1_logo
           #team1_name
           #team2_name
           #team2_logo
             img#team_2_logo
+          #match_tournament
+            div
+              #match_one_info
+                .block
+                .block
+              #match_two_info
+                .block
+                .block
+              #match_info Bo3
         #bomb_timer
     section.bodySection
       #defuser
@@ -82,11 +82,11 @@ html
             #stat_money.st_right
               | -$1000
       #player-container
-        #avatar_container(style="width:139px; height:139px; margin-top:-70px; float:left;")
+        #avatar_container
         #container2(style="width:781px;")
           #first_row
             #current_nick
-              | oszten
+              | Slevin
             #ammo
               #clip-text.clip 100
               #reserve-text.reserve 100
@@ -104,6 +104,12 @@ html
               #kills_count.inlining 13
               #assist_count.inlining 13
               #death_count.inlining 13
+      #sponsorLogos
+        img.elko(src='/files/img/sponsors/elko_logo_white.png')
+        img.pringles(src='/files/img/sponsors/pringles_logo.png')
+        img.vodafone(src='/files/img/sponsors/vodafone_logo.png')
+        img.grill(src='/files/img/sponsors/grill66_logo_white.png')
+        img.ljos(src='/files/img/sponsors/ljosleidarinn_logo_white.png')
       #left.team
         .money
           img.invert(src='/files/img/elements/team.png', style='max-height: 70%; margin-top:10px; margin-left:10px; float:left;')
@@ -131,6 +137,7 @@ html
               .bomb_defuse.ct
                 img.invert_brightness(src='/files/img/elements/defuse.png')
               #weapon_icon.bar_weapon.ct
+              .dead_stats
             .stat_t
               .kills 0
               .assists 0
@@ -152,6 +159,7 @@ html
               .bomb_defuse.ct
                 img.invert_brightness(src='/files/img/elements/defuse.png')
               #weapon_icon.bar_weapon.ct
+              .dead_stats
             .stat_t
               .kills 0
               .assists 0
@@ -173,6 +181,7 @@ html
               .bomb_defuse.ct
                 img.invert_brightness(src='/files/img/elements/defuse.png')
               #weapon_icon.bar_weapon.ct
+              .dead_stats
             .stat_t
               .kills 0
               .assists 0
@@ -194,6 +203,7 @@ html
               .bomb_defuse.ct
                 img.invert_brightness(src='/files/img/elements/defuse.png')
               #weapon_icon.bar_weapon.ct
+              .dead_stats
             .stat_t
               .kills 0
               .assists 0
@@ -215,6 +225,7 @@ html
               .bomb_defuse.ct
                 img.invert_brightness(src='/files/img/elements/defuse.png')
               #weapon_icon.bar_weapon.ct
+              .dead_stats
             .stat_t
               .kills 0
               .assists 0

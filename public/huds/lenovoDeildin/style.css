@@ -14,7 +14,7 @@ body {
   width: 100%;
 }
 .bodeh .headerSection {
-  height: 100px;
+  height: 130px;
   display: flex;
   justify-content: center;
 }
@@ -24,7 +24,7 @@ body {
   overflow: visible;
   display: grid;
   grid-template-columns: 1fr 2fr 3fr 2fr 1fr;
-  grid-template-rows: 90px 10px;
+  grid-template-rows: 120px 10px;
   grid-template-areas: "top-content top-content top-content top-content top-content" ". . bomb-timer . .";
 }
 .bodeh .headerSection #header #bomb_timer {
@@ -36,10 +36,13 @@ body {
   width: 100%;
   overflow: visible;
   color: white;
-  background: linear-gradient(90deg, #09888880 0%, #ac4edf7e 100%);
+  background: linear-gradient(90deg, #55555500 0%, #3d3d3dad 36%, #3d3d3dad 64%, #00000000 100%);
   grid-template-columns: 1fr 2fr 3fr 2fr 1fr;
-  grid-template-rows: 1fr;
-  grid-template-areas: "team1-logo team1-name header-score team2-name team2-logo";
+  grid-template-rows: 1fr 0.5fr;
+  grid-template-areas: "team1-logo team1-name header-score team2-name team2-logo" "team1-logo team1-name tournament team2-name team2-logo";
+}
+.bodeh .headerSection #header .topContent #match_tournament {
+  grid-area: tournament;
 }
 .bodeh .headerSection #header .topContent #team1_name {
   grid-area: team1-name;
@@ -76,11 +79,9 @@ body {
 }
 .bodeh .headerSection #header .topContent #team1_logo {
   grid-area: team1-logo;
-  border-right: 5px solid white;
 }
 .bodeh .headerSection #header .topContent #team2_logo {
   grid-area: team2-logo;
-  border-left: 5px solid white;
 }
 .bodeh .headerSection #header .topContent #match_teams {
   grid-area: header-score;
@@ -267,6 +268,21 @@ body {
   margin-top: -10px;
 }
 
+#sponsorLogos {
+  position: fixed;
+  bottom: 15px;
+  left: 50%;
+  margin-left: -425px;
+  width: 870px;
+  height: 65px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#sponsorLogos img {
+  max-height: 65px;
+}
+
 #player-container {
   position: fixed;
   bottom: 100px;
@@ -277,10 +293,14 @@ body {
   width: 920px;
 }
 #player-container #avatar_container {
-  border: 4px solid;
+  border-bottom: 12px solid;
+  width: 139px;
+  height: 139px;
+  margin-top: -74px;
+  float: left;
 }
 #player-container #container2 {
-  margin-left: 144px;
+  margin-left: 139px;
 }
 #player-container.no-avatar {
   margin-left: -390.5px;
@@ -293,22 +313,22 @@ body {
   margin-left: 0 !important;
 }
 #player-container.ct #avatar_container {
-  border-color: #566ae7;
-  background-color: #566ae7;
+  border-color: #3786b9;
+  background-color: transparent;
 }
 #player-container.ct #container2 #second_row {
-  background-color: #566ae7;
+  background-color: #3786b9;
   color: white;
 }
 #player-container.ct #container2 #first_row #current_nick {
   color: white;
 }
 #player-container.t #avatar_container {
-  border-color: #d89955;
-  background-color: #d89955;
+  border-color: #c5a437;
+  background-color: transparent;
 }
 #player-container.t #container2 #second_row {
-  background-color: #d89955;
+  background-color: #c5a437;
   color: white;
 }
 #player-container.t #container2 #first_row #current_nick {
@@ -499,18 +519,18 @@ body {
 
 #first_row {
   background-color: #0b1f2e8e;
-  background: linear-gradient(90deg, #09888880 0%, #ac4edf7e 100%);
+  background: linear-gradient(90deg, #09888880 0%, #62198a82 100%);
   height: 70%;
   padding-left: 15px;
   width: 100%;
 }
 
 .ct_color {
-  background-color: #2d3359 !important;
+  background-color: #3786b9 !important;
 }
 
 .t_color {
-  background-color: #d89955 !important;
+  background-color: #c5a437 !important;
 }
 
 .ct_color_border {
@@ -680,11 +700,11 @@ body {
 }
 
 .ct .block.win {
-  background-color: rgba(111, 179, 224, 0.6);
+  background-color: #3786b9;
 }
 
 .t .block.win {
-  background-color: rgba(255, 211, 78, 0.6);
+  background-color: #c5a437;
 }
 
 #match_one_info .block {
@@ -737,20 +757,26 @@ body {
 
 #left > .player > .bar1 > .hp_bar {
   width: 295px;
-  background: #566ae7;
+  background: #3786b9;
   height: 100%;
   float: left;
   text-shadow: 0px 0px 10px black;
   transform: scale(0.99, 0.9);
+  transition-property: all;
+  transition-timing-function: ease-in-out;
+  transition-duration: 0.2s;
 }
 
 #right > .player > .bar1 > .hp_bar {
   width: 295px;
-  background: #d89955;
+  background: #c5a437;
   height: 100%;
   float: right;
   text-shadow: 0px 0px 10px black;
   transform: scale(0.99, 0.9);
+  transition-property: all;
+  transition-timing-function: ease-in-out;
+  transition-duration: 0.2s;
 }
 
 .money {
@@ -975,21 +1001,14 @@ body {
   float: right;
 }
 
-#match_tournament {
-  width: 70%;
-  margin: auto;
-  margin-top: 5px;
-  height: 30px;
-}
-
 .ct-color {
-  color: #566ae7;
-  border-color: #566ae7;
+  color: #3786b9;
+  border-color: #3786b9;
 }
 
 .t-color {
-  color: #d89955;
-  border-color: #d89955;
+  color: #c5a437;
+  border-color: #c5a437;
 }
 
 #avatar_container img {
@@ -1006,10 +1025,6 @@ body {
   height: 420px;
   width: 1100px;
   /*transform: skewX(40deg);*/
-}
-
-#match_tournament > div {
-  line-height: 30px;
 }
 
 #match_one_info {
@@ -1044,7 +1059,7 @@ body {
   text-align: center;
   font-size: 40px;
   background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
-  background: linear-gradient(90deg, #09888880 0%, #ac4edf7e 100%);
+  background: linear-gradient(90deg, #55555500 0%, #3d3d3dad 36%, #3d3d3dad 64%, #00000000 100%);
 }
 
 #who_won div {
