@@ -1,3 +1,11 @@
+# CS:GO RÍSÍ overlay útgáfa 1
+Útgáfa 1 er "fork" af tóli sem má finna setup fyrir hér að neðan.
+Velja þarf "lenovo deildin" HUD.
+90% af issues má rekja til þess að config.json vantar í rótina eða að GameStateIntegrationPort er ekki það sama og í cfg möppunni.
+
+# CS:GO RÍSÍ overlay útgáfa 2
+Í vinnslu, verður ekki tengt þessu á neinn hátt (sem betur fer)
+
 # CS:GO Observer Custom HUD
 
 Shout-out to [RedSparr0w](https://github.com/RedSparr0w) for base code and idea! You are the best, man.
